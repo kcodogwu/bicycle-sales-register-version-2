@@ -12,4 +12,8 @@ public class BTNode<T> {
 		this.left = l;
 		this.right = r;
 	};
+	
+	public int getKey() {
+		return key;
+	}
 }

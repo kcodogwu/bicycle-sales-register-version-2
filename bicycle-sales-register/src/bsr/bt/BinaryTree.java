@@ -1,15 +1,19 @@
 package bsr.bt;
 
-public class BinaryTree<T> {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class BinaryTree<T> extends UnicastRemoteObject implements IBinaryTree<T> {
 	private BTNode<T> head;
 	private BTNode<T> tail;
 	
-	public BinaryTree() {
+	public BinaryTree() throws RemoteException {
 		this.tail = new BTNode<T>(0, null, null, null);
 		this.head = new BTNode<T>(-1, null, null, this.tail);
 	}
 	
-	public void insert(int k, T nv) {
+	@Override
+	public void insert(int k, T nv)throws RemoteException {
 		BTNode<T> p, x;
 
 		p = this.head; 
